@@ -59,7 +59,7 @@ git config --list
 
 ### Step 1: Navigate to Your Project
 ```bash
-cd "/Users/randolphsanford/Claude laptop/SEFIROT-COMPLETE-INSTALLER"
+cd "/path/to/your/Agentic-Lab-Environment"
 ```
 
 ### Step 2: Initialize Git Repository

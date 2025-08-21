@@ -18,7 +18,7 @@ git config --global init.defaultBranch main
 
 ### 1. Navigate to project and initialize
 ```bash
-cd "/Users/randolphsanford/Claude laptop/SEFIROT-COMPLETE-INSTALLER"
+cd "/path/to/your/Agentic-Lab-Environment"
 git init
 git add .
 ```
