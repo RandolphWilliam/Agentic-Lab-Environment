@@ -1,0 +1,102 @@
+# ChromaDB Adaptive Intelligence Platform - User Settings Template
+# Clean version for distribution without personal information
+
+user_id: "new_user"
+created_at: "2025-08-21T00:00:00"
+last_updated: "2025-08-21T00:00:00"
+settings_version: "1.0"
+
+# Privacy & Data Handling Configuration
+privacy:
+  privacy_profile: "moderate"  # Start with balanced settings
+  tier3_embedding: "disabled"  # Personal data protection by default
+  tier2_abstraction_level: "medium"
+  data_retention_days: 365
+  allow_telemetry: false  # Privacy first
+  require_explicit_consent: true
+  local_processing_only: true  # Start with local-only
+  encryption_at_rest: true
+
+# Document Processing Preferences  
+processing:
+  enable_stemming: true
+  enable_lemmatization: true
+  custom_stop_words:
+    - "draft"
+    - "todo" 
+    - "fixme"
+    - "temp"
+  semantic_chunking: true
+  chunk_size_tokens: 512
+  chunk_overlap_tokens: 50
+  language_detection: true
+  supported_languages:
+    - "en"
+  ocr_enabled: true
+  image_processing: true
+
+# Hardware Configuration (Auto-detected)
+hardware:
+  cpu_cores: null  # Will be auto-detected
+  gpu_model: null  # Will be auto-detected
+  ram_gb: null     # Will be auto-detected
+  storage_type: null
+  preferred_processing: "auto"
+  max_memory_usage_gb: null  # Will be calculated
+  enable_gpu_acceleration: true
+  parallel_processing_threads: null  # Will be optimized
+  batch_size_preference: "auto"
+
+# ChromaDB Configuration
+chromadb:
+  optimization_frequency: "weekly"  # Conservative for beginners
+  embedding_model: "auto"
+  collection_strategy: "semantic_clustering"
+  similarity_threshold: 0.7
+  max_results_per_query: 20  # Manageable results for beginners
+  enable_metadata_filtering: true
+  auto_backup_enabled: true
+  backup_frequency_hours: 24
+
+# Search Optimization & Learning
+search:
+  learn_from_failures: true
+  auto_reprocessing: false  # Manual control for beginners
+  failure_threshold: 0.3
+  graph_integration_weight: 0.5  # Balanced approach
+  temporal_decay_factor: 0.95
+  enable_query_expansion: true
+  personalized_ranking: false  # Start simple
+  cache_frequent_queries: true
+
+# Cloud Service Integration
+services:
+  accept_service_recommendations: true
+  budget_range: "budget"  # Start economical
+  max_monthly_spend: 50.0  # Conservative budget
+  preferred_providers: []  # No preferences initially
+  avoid_providers: []
+  auto_provisioning: false  # Manual approval required
+  cost_alerts_enabled: true
+  performance_tracking: true
+
+# External Integration
+integration:
+  obsidian_vault_path: null  # User will set this
+  enable_obsidian_sync: false  # Start disabled
+  sync_frequency_minutes: 60
+  create_backlinks: true
+  update_modified_files: false  # Conservative
+  respect_obsidian_ignore: true
+  markdown_link_style: "wiki"
+  tag_sync_bidirectional: false
+
+# Notification Preferences
+notifications:
+  enable_notifications: true
+  optimization_alerts: true
+  error_notifications: true
+  performance_reports: false  # Don't overwhelm beginners
+  weekly_digest: false
+  cost_threshold_alerts: true
+  privacy_compliance_alerts: true

@@ -1,0 +1,59 @@
+Sefirot Intelligence Platform License
+
+Copyright (c) 2024 Sefirot Consulting
+
+## Personal & Educational Use License
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to use,
+copy, modify, and distribute the Software for PERSONAL, EDUCATIONAL, and 
+NON-COMMERCIAL purposes only, subject to the following conditions:
+
+### Permitted Uses:
+- Personal knowledge management and productivity
+- Educational research and learning
+- Non-profit organization use
+- Open source contributions and improvements
+- Academic research and publication
+
+### Prohibited Uses:
+- Commercial deployment without explicit written permission
+- Selling the Software or derivative works
+- Using the Software to provide commercial services
+- Integrating into commercial products without licensing agreement
+
+### Commercial Licensing:
+For commercial use, enterprise deployment, or integration into commercial 
+products, contact Sefirot Consulting at licensing@sefirot.dev to discuss
+commercial licensing terms and payment arrangements.
+
+### Conditions:
+1. The above copyright notice and this permission notice shall be included in all
+   copies or substantial portions of the Software.
+2. Any derivative works must maintain this license and attribution.
+3. Commercial use requires separate written agreement with Sefirot Consulting.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+## Third-Party Licenses
+
+This project incorporates several open-source libraries:
+- Electron: MIT License
+- ChromaDB: Apache 2.0 License  
+- Node.js: MIT License
+- Python libraries: Various (see requirements for details)
+
+Commercial use requires API keys from:
+- Anthropic (Claude Pro subscription)
+- OpenAI (API usage fees apply)
+- Optional services (Shopify, RunPod, etc.)
+
+Sefirot branding and assets are proprietary to Sefirot Consulting.

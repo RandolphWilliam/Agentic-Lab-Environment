@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sefirot Intelligence Platform Installer</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="../assets/sefirot-branding.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Background Animation -->
+        <div class="background-animation">
+            <div class="neural-network">
+                <div class="node"></div>
+                <div class="node"></div>
+                <div class="node"></div>
+                <div class="node"></div>
+                <div class="node"></div>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <header class="app-header sefirot-header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo sefirot-logo">
+                        <div class="sefirot-tree-symbol"></div>
+                    </div>
+                    <div class="title-section">
+                        <h1 class="sefirot-title">Sefirot Intelligence Platform</h1>
+                        <p class="subtitle sefirot-subtitle">ChromaDB Adaptive Intelligence • Sefirot Consulting</p>
+                    </div>
+                </div>
+                <div class="version-info">
+                    <span class="version">v1.0</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Welcome Phase -->
+            <div id="welcome-phase" class="phase active">
+                <div class="welcome-container">
+                    <div class="welcome-content">
+                        <div class="welcome-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h2>Welcome to Your Personal AI Intelligence Platform</h2>
+                        <p class="welcome-description">
+                            Transform your knowledge work with privacy-first AI that learns how <em>you</em> think, 
+                            not how everyone else thinks you should think. Everything runs on your machine, 
+                            your thoughts stay your thoughts.
+                        </p>
+                        
+                        <div class="features-grid">
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-search"></i>
+                                </div>
+                                <h3>Semantic Search</h3>
+                                <p>Find things by meaning, not just keywords</p>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <h3>3-Tier Privacy</h3>
+                                <p>You control what AI can touch</p>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                <h3>Adaptive Learning</h3>
+                                <p>Gets smarter the more you use it</p>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-cogs"></i>
+                                </div>
+                                <h3>Hardware Aware</h3>
+                                <p>Optimized for your Mac's capabilities</p>
+                            </div>
+                        </div>
+
+                        <div class="action-buttons">
+                            <button id="start-setup-btn" class="primary-btn sefirot-btn-primary">
+                                <i class="fas fa-play"></i>
+                                Begin Your Intelligence Journey
+                            </button>
+                            <button id="learn-more-btn" class="secondary-btn sefirot-btn-secondary">
+                                <i class="fas fa-info-circle"></i>
+                                Learn More
+                            </button>
+                        </div>
+                        
+                        <div class="sefirot-wisdom-quote">
+                            As above, so below - your knowledge becomes your wisdom
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- System Requirements Phase -->
+            <div id="requirements-phase" class="phase">
+                <div class="requirements-container">
+                    <div class="phase-header">
+                        <div class="step-indicator">
+                            <span class="step-number">1</span>
+                            <span class="step-text">System Check</span>
+                        </div>
+                        <h2>Checking Your Mac's Capabilities</h2>
+                        <p>Making sure everything's ready for your AI intelligence platform</p>
+                    </div>
+
+                    <div class="requirements-content">
+                        <div id="requirements-loading" class="loading-state">
+                            <div class="spinner"></div>
+                            <p>Analyzing your system...</p>
+                        </div>
+
+                        <div id="requirements-results" class="requirements-results" style="display: none;">
+                            <div class="system-info">
+                                <h3>System Information</h3>
+                                <div class="info-grid">
+                                    <div class="info-item">
+                                        <span class="label">macOS Version:</span>
+                                        <span id="macos-version" class="value">-</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="label">Architecture:</span>
+                                        <span id="architecture" class="value">-</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="label">Memory:</span>
+                                        <span id="memory" class="value">-</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="label">Available Space:</span>
+                                        <span id="disk-space" class="value">-</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="requirements-status">
+                                <h3>Requirements Status</h3>
+                                <div id="requirements-list" class="requirements-list">
+                                    <!-- Populated dynamically -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="action-buttons">
+                            <button id="continue-to-credentials-btn" class="primary-btn" disabled>
+                                <i class="fas fa-arrow-right"></i>
+                                Continue to Credentials
+                            </button>
+                            <button id="retry-requirements-btn" class="secondary-btn" style="display: none;">
+                                <i class="fas fa-redo"></i>
+                                Retry Check
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Credentials Phase -->
+            <div id="credentials-phase" class="phase">
+                <div class="credentials-container">
+                    <div class="phase-header">
+                        <div class="step-indicator">
+                            <span class="step-number">2</span>
+                            <span class="step-text">API Setup</span>
+                        </div>
+                        <h2>Connect Your AI Services</h2>
+                        <p>Configure your API credentials for intelligent processing</p>
+                    </div>
+
+                    <div class="credentials-content">
+                        <div class="credentials-form">
+                            <div class="form-section">
+                                <h3>
+                                    <i class="fas fa-robot"></i>
+                                    Essential AI Services
+                                </h3>
+                                <p class="section-description">Required for core intelligence functionality</p>
+
+                                <div class="form-group">
+                                    <label for="anthropic-key">
+                                        <i class="fas fa-key"></i>
+                                        Anthropic Claude API Key
+                                        <span class="required">*</span>
+                                    </label>
+                                    <input type="password" id="anthropic-key" placeholder="sk-ant-api03-..." required>
+                                    <small class="help-text">
+                                        Get your API key from <a href="#" onclick="electronAPI.openExternal('https://console.anthropic.com')">Anthropic Console</a>
+                                    </small>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="openai-key">
+                                        <i class="fas fa-key"></i>
+                                        OpenAI API Key
+                                        <span class="required">*</span>
+                                    </label>
+                                    <input type="password" id="openai-key" placeholder="sk-..." required>
+                                    <small class="help-text">
+                                        Get your API key from <a href="#" onclick="electronAPI.openExternal('https://platform.openai.com/api-keys')">OpenAI Platform</a>
+                                    </small>
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <h3>
+                                    <i class="fas fa-store"></i>
+                                    Shopify Integration
+                                    <span class="optional">Optional</span>
+                                </h3>
+                                <p class="section-description">Connect your Shopify store for e-commerce intelligence</p>
+
+                                <div class="form-group">
+                                    <label for="shopify-store">
+                                        <i class="fas fa-globe"></i>
+                                        Store URL
+                                    </label>
+                                    <input type="url" id="shopify-store" placeholder="your-store.myshopify.com">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="shopify-token">
+                                        <i class="fas fa-key"></i>
+                                        Access Token
+                                    </label>
+                                    <input type="password" id="shopify-token" placeholder="shpat_...">
+                                </div>
+                            </div>
+
+                            <div class="form-section expandable">
+                                <h3 class="expandable-header" onclick="toggleExpandable(this)">
+                                    <i class="fas fa-cloud"></i>
+                                    Advanced Services
+                                    <span class="optional">Optional</span>
+                                    <i class="fas fa-chevron-down expand-icon"></i>
+                                </h3>
+                                
+                                <div class="expandable-content">
+                                    <p class="section-description">Additional cloud services for enhanced capabilities</p>
+
+                                    <div class="form-group">
+                                        <label for="runpod-key">
+                                            <i class="fas fa-server"></i>
+                                            RunPod API Key
+                                        </label>
+                                        <input type="password" id="runpod-key" placeholder="Your RunPod API key">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="paperspace-key">
+                                            <i class="fas fa-desktop"></i>
+                                            Paperspace API Key
+                                        </label>
+                                        <input type="password" id="paperspace-key" placeholder="Your Paperspace API key">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="pinecone-key">
+                                            <i class="fas fa-database"></i>
+                                            Pinecone API Key
+                                        </label>
+                                        <input type="password" id="pinecone-key" placeholder="Your Pinecone API key">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="privacy-notice">
+                            <div class="notice-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="notice-content">
+                                <h4>Privacy First</h4>
+                                <p>Your API keys are stored securely on your Mac and never shared. All processing starts locally, with cloud services only used with your explicit consent.</p>
+                            </div>
+                        </div>
+
+                        <div class="action-buttons">
+                            <button id="save-credentials-btn" class="primary-btn">
+                                <i class="fas fa-save"></i>
+                                Save & Continue
+                            </button>
+                            <button id="back-to-requirements-btn" class="secondary-btn">
+                                <i class="fas fa-arrow-left"></i>
+                                Back
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Installation Phase -->
+            <div id="installation-phase" class="phase">
+                <div class="installation-container">
+                    <div class="phase-header">
+                        <div class="step-indicator">
+                            <span class="step-number">3</span>
+                            <span class="step-text">Installation</span>
+                        </div>
+                        <h2>Building Your Intelligence Platform</h2>
+                        <p>Sit back and relax while we set up your AI-powered knowledge system</p>
+                    </div>
+
+                    <div class="installation-content">
+                        <div class="installation-progress">
+                            <div class="overall-progress">
+                                <h3>Overall Progress</h3>
+                                <div class="progress-bar">
+                                    <div id="overall-progress-fill" class="progress-fill" style="width: 0%"></div>
+                                </div>
+                                <div class="progress-text">
+                                    <span id="overall-progress-text">0% Complete</span>
+                                    <span id="eta-text">Estimating time...</span>
+                                </div>
+                            </div>
+
+                            <div class="steps-progress">
+                                <div class="step-item" data-step="1">
+                                    <div class="step-circle">
+                                        <span class="step-num">1</span>
+                                        <div class="step-progress-ring">
+                                            <svg viewBox="0 0 36 36">
+                                                <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" 
+                                                      fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+                                                <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" 
+                                                      fill="none" stroke="#4F46E5" stroke-width="2" 
+                                                      stroke-dasharray="0, 100" stroke-linecap="round"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="step-info">
+                                        <h4>Environment Setup</h4>
+                                        <p class="step-status">Pending...</p>
+                                    </div>
+                                </div>
+
+                                <div class="step-item" data-step="2">
+                                    <div class="step-circle">
+                                        <span class="step-num">2</span>
+                                        <div class="step-progress-ring">
+                                            <svg viewBox="0 0 36 36">
+                                                <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" 
+                                                      fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+                                                <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" 
+                                                      fill="none" stroke="#4F46E5" stroke-width="2" 
+                                                      stroke-dasharray="0, 100" stroke-linecap="round"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="step-info">
+                                        <h4>Python Environment</h4>
+                                        <p class="step-status">Waiting...</p>
+                                    </div>
+                                </div>
+
+                                <div class="step-item" data-step="3">
+                                    <div class="step-circle">
+                                        <span class="step-num">3</span>
+                                        <div class="step-progress-ring">
+                                            <svg viewBox="0 0 36 36">
+                                                <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" 
+                                                      fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+                                                <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" 
+                                                      fill="none" stroke="#4F46E5" stroke-width="2" 
+                                                      stroke-dasharray="0, 100" stroke-linecap="round"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="step-info">
+                                        <h4>ChromaDB Platform</h4>
+                                        <p class="step-status">Waiting...</p>
+                                    </div>
+                                </div>
+
+                                <div class="step-item" data-step="4">
+                                    <div class="step-circle">
+                                        <span class="step-num">4</span>
+                                        <div class="step-progress-ring">
+                                            <svg viewBox="0 0 36 36">
+                                                <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" 
+                                                      fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+                                                <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" 
+                                                      fill="none" stroke="#4F46E5" stroke-width="2" 
+                                                      stroke-dasharray="0, 100" stroke-linecap="round"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="step-info">
+                                        <h4>Obsidian Integration</h4>
+                                        <p class="step-status">Waiting...</p>
+                                    </div>
+                                </div>
+
+                                <div class="step-item" data-step="5">
+                                    <div class="step-circle">
+                                        <span class="step-num">5</span>
+                                        <div class="step-progress-ring">
+                                            <svg viewBox="0 0 36 36">
+                                                <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" 
+                                                      fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+                                                <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" 
+                                                      fill="none" stroke="#4F46E5" stroke-width="2" 
+                                                      stroke-dasharray="0, 100" stroke-linecap="round"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="step-info">
+                                        <h4>Final Configuration</h4>
+                                        <p class="step-status">Waiting...</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="installation-logs">
+                            <div class="logs-header">
+                                <h3>
+                                    <i class="fas fa-terminal"></i>
+                                    Installation Logs
+                                </h3>
+                                <button id="toggle-logs-btn" class="logs-toggle">
+                                    <i class="fas fa-chevron-up"></i>
+                                </button>
+                            </div>
+                            <div id="logs-container" class="logs-content">
+                                <div id="logs-output" class="logs-output">
+                                    <!-- Logs will be populated here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Completion Phase -->
+            <div id="completion-phase" class="phase">
+                <div class="completion-container">
+                    <div class="completion-content">
+                        <div class="success-animation">
+                            <div class="success-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                        </div>
+
+                        <h2>🎉 Your AI Intelligence Platform is Ready!</h2>
+                        <p class="completion-description">
+                            Sefirot has been successfully installed and configured. You now have a powerful, 
+                            privacy-first AI system that understands your unique thinking patterns.
+                        </p>
+
+                        <div class="completion-stats">
+                            <div class="stat-item">
+                                <div class="stat-icon">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <span class="stat-number">1</span>
+                                    <span class="stat-label">AI Intelligence Engine</span>
+                                </div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <span class="stat-number">3</span>
+                                    <span class="stat-label">Privacy Tiers</span>
+                                </div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-icon">
+                                    <i class="fas fa-book-open"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <span class="stat-number">1</span>
+                                    <span class="stat-label">Obsidian Vault</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="next-steps">
+                            <h3>What's Next?</h3>
+                            <div class="next-steps-grid">
+                                <div class="next-step-card">
+                                    <div class="step-icon">
+                                        <i class="fas fa-play-circle"></i>
+                                    </div>
+                                    <h4>Take the Guided Tour</h4>
+                                    <p>Learn how to use your new AI intelligence system</p>
+                                    <button id="start-tour-btn" class="step-btn">
+                                        <i class="fas fa-rocket"></i>
+                                        Start Tour
+                                    </button>
+                                </div>
+                                
+                                <div class="next-step-card">
+                                    <div class="step-icon">
+                                        <i class="fas fa-book"></i>
+                                    </div>
+                                    <h4>Open Your Vault</h4>
+                                    <p>Start organizing your knowledge in Obsidian</p>
+                                    <button id="open-vault-btn" class="step-btn">
+                                        <i class="fas fa-folder-open"></i>
+                                        Open Vault
+                                    </button>
+                                </div>
+                                
+                                <div class="next-step-card">
+                                    <div class="step-icon">
+                                        <i class="fas fa-terminal"></i>
+                                    </div>
+                                    <h4>Command Line Tools</h4>
+                                    <p>Access powerful CLI tools for advanced users</p>
+                                    <button id="open-cli-btn" class="step-btn">
+                                        <i class="fas fa-code"></i>
+                                        Open CLI
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="support-section">
+                            <h3>Need Help?</h3>
+                            <div class="support-links">
+                                <a href="#" onclick="electronAPI.openExternal('https://sefirot.dev/docs')" class="support-link">
+                                    <i class="fas fa-book"></i>
+                                    Documentation
+                                </a>
+                                <a href="#" onclick="electronAPI.openExternal('mailto:hello@sefirot.dev')" class="support-link">
+                                    <i class="fas fa-envelope"></i>
+                                    Support Email
+                                </a>
+                                <a href="#" onclick="electronAPI.openExternal('https://github.com/sefirot-dev')" class="support-link">
+                                    <i class="fab fa-github"></i>
+                                    GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Guided Tour Phase -->
+            <div id="tour-phase" class="phase">
+                <div class="tour-container">
+                    <div class="tour-header">
+                        <div class="step-indicator">
+                            <span class="step-number">🎓</span>
+                            <span class="step-text">Guided Tour</span>
+                        </div>
+                        <h2>Welcome to Your AI Butler</h2>
+                        <p>Let's explore your new intelligence platform together</p>
+                    </div>
+
+                    <div class="tour-content">
+                        <div class="butler-avatar">
+                            <div class="avatar-container">
+                                <i class="fas fa-user-tie"></i>
+                                <div class="speech-bubble">
+                                    <p id="butler-message">Hello! I'm your AI butler. I'll guide you through the capabilities of your new intelligence platform.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tour-sections">
+                            <div class="tour-section active" data-section="introduction">
+                                <h3>Meet Your AI Intelligence</h3>
+                                <p>Your Sefirot platform combines several powerful technologies:</p>
+                                <ul>
+                                    <li><strong>ChromaDB</strong>: Your personal knowledge database</li>
+                                    <li><strong>Claude AI</strong>: Advanced language understanding</li>
+                                    <li><strong>Privacy Framework</strong>: 3-tier data protection</li>
+                                    <li><strong>Obsidian Integration</strong>: Visual knowledge management</li>
+                                </ul>
+                            </div>
+
+                            <div class="tour-section" data-section="privacy">
+                                <h3>Understanding Privacy Tiers</h3>
+                                <div class="privacy-tiers">
+                                    <div class="tier-card tier-1">
+                                        <div class="tier-icon">
+                                            <i class="fas fa-globe"></i>
+                                        </div>
+                                        <h4>Tier 1: Public</h4>
+                                        <p>Information safe for sharing and cloud processing</p>
+                                    </div>
+                                    <div class="tier-card tier-2">
+                                        <div class="tier-icon">
+                                            <i class="fas fa-building"></i>
+                                        </div>
+                                        <h4>Tier 2: Business</h4>
+                                        <p>Confidential information requiring careful handling</p>
+                                    </div>
+                                    <div class="tier-card tier-3">
+                                        <div class="tier-icon">
+                                            <i class="fas fa-lock"></i>
+                                        </div>
+                                        <h4>Tier 3: Personal</h4>
+                                        <p>Private information never leaving your device</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tour-section" data-section="features">
+                                <h3>Key Features Demo</h3>
+                                <div class="features-demo">
+                                    <div class="demo-item">
+                                        <h4>Semantic Search</h4>
+                                        <div class="demo-example">
+                                            <div class="search-box">
+                                                <input type="text" placeholder="AI projects from last quarter" readonly>
+                                                <button><i class="fas fa-search"></i></button>
+                                            </div>
+                                            <p class="demo-result">Finds related content by meaning, not just keywords</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="demo-item">
+                                        <h4>Automatic Classification</h4>
+                                        <div class="demo-example">
+                                            <div class="document-example">
+                                                <span class="doc-icon"><i class="fas fa-file-alt"></i></span>
+                                                <span class="doc-name">Meeting Notes.md</span>
+                                                <span class="privacy-tag tier-2">Business Confidential</span>
+                                            </div>
+                                            <p class="demo-result">Automatically classifies content privacy level</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tour-section" data-section="workflow">
+                                <h3>Your Daily Workflow</h3>
+                                <div class="workflow-steps">
+                                    <div class="workflow-step">
+                                        <div class="step-number">1</div>
+                                        <div class="step-content">
+                                            <h4>Capture Ideas</h4>
+                                            <p>Drop documents, notes, or thoughts into your Obsidian vault</p>
+                                        </div>
+                                    </div>
+                                    <div class="workflow-step">
+                                        <div class="step-number">2</div>
+                                        <div class="step-content">
+                                            <h4>AI Processing</h4>
+                                            <p>Sefirot automatically processes and understands your content</p>
+                                        </div>
+                                    </div>
+                                    <div class="workflow-step">
+                                        <div class="step-number">3</div>
+                                        <div class="step-content">
+                                            <h4>Discover Connections</h4>
+                                            <p>Find unexpected relationships between your ideas</p>
+                                        </div>
+                                    </div>
+                                    <div class="workflow-step">
+                                        <div class="step-number">4</div>
+                                        <div class="step-content">
+                                            <h4>Generate Insights</h4>
+                                            <p>Let AI help you see patterns and generate new ideas</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tour-section" data-section="tools">
+                                <h3>Essential Tools</h3>
+                                <div class="tools-grid">
+                                    <div class="tool-card">
+                                        <div class="tool-icon">
+                                            <i class="fas fa-terminal"></i>
+                                        </div>
+                                        <h4>Sefirot CLI</h4>
+                                        <p>Command-line interface for power users</p>
+                                        <code>sefirot status</code>
+                                    </div>
+                                    <div class="tool-card">
+                                        <div class="tool-icon">
+                                            <i class="fas fa-sync-alt"></i>
+                                        </div>
+                                        <h4>Vault Sync</h4>
+                                        <p>Synchronize your Obsidian vault with AI</p>
+                                        <code>sefirot sync</code>
+                                    </div>
+                                    <div class="tool-card">
+                                        <div class="tool-icon">
+                                            <i class="fas fa-search"></i>
+                                        </div>
+                                        <h4>Intelligence Search</h4>
+                                        <p>Semantic search across all your content</p>
+                                        <code>sefirot search "concept"</code>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tour-navigation">
+                            <button id="tour-prev-btn" class="secondary-btn" disabled>
+                                <i class="fas fa-arrow-left"></i>
+                                Previous
+                            </button>
+                            <div class="tour-progress">
+                                <div class="progress-dots">
+                                    <span class="dot active"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                </div>
+                            </div>
+                            <button id="tour-next-btn" class="primary-btn">
+                                Next
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+
+                        <div class="tour-completion" style="display: none;">
+                            <div class="completion-message">
+                                <h3>🎓 Tour Complete!</h3>
+                                <p>You're now ready to harness the full power of your AI intelligence platform.</p>
+                                <div class="action-buttons">
+                                    <button id="finish-tour-btn" class="primary-btn">
+                                        <i class="fas fa-rocket"></i>
+                                        Start Using Sefirot
+                                    </button>
+                                    <button id="replay-tour-btn" class="secondary-btn">
+                                        <i class="fas fa-redo"></i>
+                                        Replay Tour
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="#" onclick="electronAPI.openExternal('https://sefirot.dev')">sefirot.dev</a>
+                    <a href="#" onclick="electronAPI.openExternal('mailto:hello@sefirot.dev')">hello@sefirot.dev</a>
+                    <a href="#" onclick="electronAPI.openExternal('https://github.com/sefirot-dev')">GitHub</a>
+                </div>
+                <div class="footer-info">
+                    <span>Built with curiosity and caffeine</span>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Loading Overlay -->
+        <div id="loading-overlay" class="loading-overlay" style="display: none;">
+            <div class="loading-content">
+                <div class="spinner"></div>
+                <p id="loading-message">Processing...</p>
+            </div>
+        </div>
+
+        <!-- Notification System -->
+        <div id="notification-container" class="notification-container">
+            <!-- Notifications will be inserted here -->
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/installer.js"></script>
+    <script src="scripts/tour.js"></script>
+</body>
+</html>

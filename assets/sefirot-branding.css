@@ -1,0 +1,430 @@
+/* Sefirot Consulting Brand Identity CSS */
+
+:root {
+  /* Sefirot Brand Colors */
+  --sefirot-gold: #D4AF37;
+  --sefirot-deep-gold: #B8941F;
+  --sefirot-light-gold: #E6C866;
+  --sefirot-cream: #F5F3E9;
+  --sefirot-charcoal: #2C2C2C;
+  --sefirot-slate: #4A5568;
+  --sefirot-wisdom-blue: #2D3748;
+  --sefirot-parchment: #FAF9F6;
+  
+  /* Brand Gradients */
+  --sefirot-primary-gradient: linear-gradient(135deg, var(--sefirot-gold), var(--sefirot-deep-gold));
+  --sefirot-wisdom-gradient: linear-gradient(135deg, var(--sefirot-wisdom-blue), var(--sefirot-slate));
+  --sefirot-light-gradient: linear-gradient(135deg, var(--sefirot-cream), var(--sefirot-parchment));
+  
+  /* Typography - Sefirot Uses Sophisticated, Readable Fonts */
+  --sefirot-font-primary: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  --sefirot-font-accent: 'Crimson Text', 'Times New Roman', serif;
+  --sefirot-font-mono: 'JetBrains Mono', 'Monaco', 'Menlo', monospace;
+}
+
+/* Sefirot Logo and Branding Elements */
+.sefirot-logo {
+  background: var(--sefirot-primary-gradient);
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.sefirot-logo::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="3" fill="rgba(255,255,255,0.3)"/><circle cx="25" cy="25" r="2" fill="rgba(255,255,255,0.2)"/><circle cx="75" cy="25" r="2" fill="rgba(255,255,255,0.2)"/><circle cx="25" cy="75" r="2" fill="rgba(255,255,255,0.2)"/><circle cx="75" cy="75" r="2" fill="rgba(255,255,255,0.2)"/><path d="M50,20 Q60,40 50,50 Q40,40 50,20" fill="rgba(255,255,255,0.1)"/></svg>') center/contain no-repeat;
+}
+
+/* Sefirot Header Styling */
+.sefirot-header {
+  background: var(--sefirot-wisdom-gradient);
+  border-bottom: 3px solid var(--sefirot-gold);
+  position: relative;
+}
+
+.sefirot-header::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--sefirot-light-gold), transparent);
+}
+
+.sefirot-title {
+  color: var(--sefirot-cream);
+  font-family: var(--sefirot-font-accent);
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+.sefirot-subtitle {
+  color: var(--sefirot-light-gold);
+  font-family: var(--sefirot-font-primary);
+  font-weight: 300;
+  font-style: italic;
+}
+
+/* Sefirot Button Styling */
+.sefirot-btn-primary {
+  background: var(--sefirot-primary-gradient);
+  border: 2px solid var(--sefirot-deep-gold);
+  color: var(--sefirot-charcoal);
+  font-weight: 600;
+  font-family: var(--sefirot-font-primary);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.sefirot-btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.sefirot-btn-primary:hover::before {
+  left: 100%;
+}
+
+.sefirot-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+  border-color: var(--sefirot-gold);
+}
+
+.sefirot-btn-secondary {
+  background: transparent;
+  border: 2px solid var(--sefirot-gold);
+  color: var(--sefirot-gold);
+  font-family: var(--sefirot-font-primary);
+  transition: all 0.3s ease;
+}
+
+.sefirot-btn-secondary:hover {
+  background: var(--sefirot-gold);
+  color: var(--sefirot-charcoal);
+  transform: translateY(-1px);
+}
+
+/* Sefirot Card Styling */
+.sefirot-card {
+  background: var(--sefirot-parchment);
+  border: 1px solid var(--sefirot-light-gold);
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.sefirot-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--sefirot-primary-gradient);
+}
+
+.sefirot-card-wisdom {
+  background: linear-gradient(135deg, var(--sefirot-wisdom-blue), var(--sefirot-slate));
+  color: var(--sefirot-cream);
+  border-color: var(--sefirot-gold);
+}
+
+/* Sefirot Progress Elements */
+.sefirot-progress-bar {
+  background: var(--sefirot-cream);
+  border: 1px solid var(--sefirot-light-gold);
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+}
+
+.sefirot-progress-fill {
+  background: var(--sefirot-primary-gradient);
+  position: relative;
+  overflow: hidden;
+}
+
+.sefirot-progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* Sefirot Tree of Life Symbol */
+.sefirot-tree-symbol {
+  position: relative;
+  width: 60px;
+  height: 80px;
+  margin: 0 auto;
+}
+
+.sefirot-tree-symbol::before,
+.sefirot-tree-symbol::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: var(--sefirot-gold);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+.sefirot-tree-symbol::before {
+  width: 12px;
+  height: 12px;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--sefirot-light-gold);
+}
+
+.sefirot-tree-symbol::after {
+  width: 8px;
+  height: 8px;
+  top: 35px;
+  left: 20px;
+  background: var(--sefirot-deep-gold);
+}
+
+/* Sefirot Wisdom Quotes */
+.sefirot-wisdom-quote {
+  font-family: var(--sefirot-font-accent);
+  font-style: italic;
+  color: var(--sefirot-slate);
+  position: relative;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.sefirot-wisdom-quote::before {
+  content: '"';
+  font-size: 3em;
+  color: var(--sefirot-gold);
+  position: absolute;
+  top: -10px;
+  left: -5px;
+  line-height: 1;
+}
+
+/* Sefirot Status Indicators */
+.sefirot-status-completed {
+  color: var(--sefirot-gold);
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid var(--sefirot-light-gold);
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 0.85em;
+  font-weight: 500;
+}
+
+.sefirot-status-in-progress {
+  color: var(--sefirot-wisdom-blue);
+  background: rgba(45, 55, 72, 0.1);
+  border: 1px solid var(--sefirot-slate);
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 0.85em;
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+}
+
+.sefirot-status-in-progress::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), transparent);
+  animation: progress-shimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes progress-shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* Sefirot Tooltips */
+.sefirot-tooltip {
+  background: var(--sefirot-charcoal);
+  color: var(--sefirot-cream);
+  border: 1px solid var(--sefirot-gold);
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 0.85em;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.sefirot-tooltip::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid var(--sefirot-charcoal);
+}
+
+/* Sefirot Background Patterns */
+.sefirot-background-pattern {
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(212, 175, 55, 0.05) 0%, transparent 25%),
+    radial-gradient(circle at 75% 75%, rgba(45, 55, 72, 0.05) 0%, transparent 25%);
+  background-size: 100px 100px;
+}
+
+/* Sefirot Installation Steps with Tree of Life Theme */
+.sefirot-step-sephirah {
+  position: relative;
+  background: var(--sefirot-parchment);
+  border: 2px solid var(--sefirot-light-gold);
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: var(--sefirot-charcoal);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+  transition: all 0.3s ease;
+}
+
+.sefirot-step-sephirah.active {
+  background: var(--sefirot-primary-gradient);
+  color: var(--sefirot-charcoal);
+  border-color: var(--sefirot-deep-gold);
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+}
+
+.sefirot-step-sephirah.completed {
+  background: var(--sefirot-wisdom-gradient);
+  color: var(--sefirot-gold);
+  border-color: var(--sefirot-gold);
+}
+
+.sefirot-step-sephirah.completed::after {
+  content: '✓';
+  position: absolute;
+  font-size: 1.2em;
+  color: var(--sefirot-gold);
+}
+
+/* Sefirot Mystical Effects */
+.sefirot-glow {
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+  animation: sefirot-pulse 3s ease-in-out infinite;
+}
+
+@keyframes sefirot-pulse {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+  }
+  50% { 
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.9), 
+                0 0 40px rgba(212, 175, 55, 0.4);
+  }
+}
+
+/* Sefirot Text Styling */
+.sefirot-heading {
+  font-family: var(--sefirot-font-accent);
+  color: var(--sefirot-charcoal);
+  position: relative;
+}
+
+.sefirot-heading::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background: var(--sefirot-primary-gradient);
+}
+
+.sefirot-body-text {
+  font-family: var(--sefirot-font-primary);
+  color: var(--sefirot-slate);
+  line-height: 1.6;
+}
+
+/* Sefirot Consulting Footer Branding */
+.sefirot-footer-brand {
+  background: var(--sefirot-wisdom-gradient);
+  color: var(--sefirot-cream);
+  text-align: center;
+  padding: 20px;
+  border-top: 3px solid var(--sefirot-gold);
+}
+
+.sefirot-footer-brand::before {
+  content: '⚡';
+  margin-right: 8px;
+  color: var(--sefirot-gold);
+}
+
+.sefirot-footer-brand::after {
+  content: ' - Illuminating Intelligence';
+  font-style: italic;
+  color: var(--sefirot-light-gold);
+}
+
+/* Dark Mode Sefirot Adjustments */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --sefirot-parchment: #1A1A1A;
+    --sefirot-cream: #F5F3E9;
+    --sefirot-charcoal: #F5F3E9;
+  }
+  
+  .sefirot-card {
+    background: rgba(26, 26, 26, 0.8);
+    border-color: var(--sefirot-deep-gold);
+  }
+}
+
+/* Responsive Sefirot Branding */
+@media (max-width: 768px) {
+  .sefirot-tree-symbol {
+    width: 40px;
+    height: 60px;
+  }
+  
+  .sefirot-step-sephirah {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .sefirot-wisdom-quote {
+    font-size: 0.9em;
+    padding: 15px;
+  }
+}
