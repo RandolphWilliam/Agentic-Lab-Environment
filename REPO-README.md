@@ -1,6 +1,6 @@
-# Sefirot Intelligence Platform
+# Agentic Lab Environment
 
-**Open-source AI knowledge management software for privacy-focused professionals**
+**Source-available AI knowledge management platform for privacy-focused professionals**
 
 A powerful local-first AI document intelligence platform that brings enterprise-grade semantic search and AI processing directly to your Mac. Built for professionals who need advanced AI capabilities without sacrificing privacy or data security.
 
@@ -24,8 +24,8 @@ We created this privacy-focused AI platform because existing cloud-based AI tool
 ## Quick Installation Guide
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/sefirot-intelligence-platform
-cd sefirot-intelligence-platform
+git clone https://github.com/YOUR_USERNAME/agentic-lab-environment
+cd agentic-lab-environment
 npm install
 npm start
 ```
@@ -66,7 +66,7 @@ This approach solves the fundamental privacy vs. capability dilemma facing knowl
 **Privacy Framework**: Advanced 3-tier document classification system with granular user control  
 **Hardware Optimization**: Adaptive performance tuning for Apple Silicon and Intel Mac architectures
 
-## Contributing to Open Source AI Knowledge Management
+## Contributing to Agentic Lab Environment
 
 We welcome contributions from developers interested in advancing privacy-focused AI and local-first document intelligence. This platform began as internal tooling and has evolved into a comprehensive solution for professionals seeking secure AI capabilities.
 
