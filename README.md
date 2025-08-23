@@ -182,7 +182,7 @@ npm run dist
 ## Support and Documentation
 
 **Technical Support**
-- Email: hello@sefirot.dev
+- Email: Dev@sefirotconsulting.com
 - Documentation: Comprehensive guides included in `/DOCUMENTATION/` directory
 - Issue Resolution: Built-in diagnostic and troubleshooting tools
 - Community: GitHub repository for contributions and feature requests
