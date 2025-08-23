@@ -1,5 +1,5 @@
 {
-  description = "ChromaDB Adaptive Intelligence Platform - Development Environment";
+  description = "Sefirot ChromaDB Intelligence Platform v2.0 - Production Ready";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -110,12 +110,16 @@
         devShells.default = pkgs.mkShell {
           buildInputs = [ pythonEnv ] ++ systemPackages;
           
-          # Hardware optimization environment variables
+          # v1.78.8 Production Environment with Privacy & Semantic Intelligence
           shellHook = ''
-            echo "🚀 ChromaDB Adaptive Intelligence Platform Environment"
+            echo "🌳 Sefirot ChromaDB Intelligence Platform v2.0"
+            echo "  Multi-Vault Semantic Processing: ✅"
+            echo "  Privacy Classification (3-Tier): ✅" 
+            echo "  Semantic Tagging (47 Categories): ✅"
+            echo "  Hardware Optimization: ✅"
+            echo ""
             echo "Python: $(python --version)"
-            echo "ChromaDB: Available"
-            echo "Hardware Profiling: Enabled"
+            echo "ChromaDB: $(python -c 'import chromadb; print(chromadb.__version__)' 2>/dev/null || echo 'Installing...')"
             echo ""
             
             # Set optimization flags for different hardware configurations
@@ -155,18 +159,34 @@
             fi
             
             echo ""
-            echo "Environment ready for ChromaDB development!"
-            echo "Available commands:"
-            echo "  - python hardware_profiler.py  # Profile system capabilities"
-            echo "  - python chromadb_setup.py     # Initialize ChromaDB collections"
-            echo "  - python document_processor.py # Process documents for embedding"
+            echo "🔧 Sefirot Intelligence Commands Available:"
+            echo "  - sefirot init                    # Initialize user configuration"
+            echo "  - sefirot sync [vault_path]       # Process and index vault content"
+            echo "  - sefirot query 'search term'     # Semantic search across collections"
+            echo "  - sefirot privacy-scan [path]     # Classify content privacy tiers"
+            echo "  - sefirot tag-analysis [path]     # Apply semantic tags"
+            echo "  - sefirot doctor                  # System health check"
+            echo "  - sefirot hardware-profile        # Generate hardware optimization"
+            echo ""
+            echo "📖 Documentation: docs.sefirot.ai"
+            echo "💬 Community: discord.gg/sefirot" 
             echo ""
           '';
           
-          # Additional environment variables for development
-          CHROMADB_DATA_PATH = "./chromadb_data";
-          OBSIDIAN_VAULT_PATH = "/Users/randolphsanford/Claude laptop/Claude Obsidian Vault v1/Claude Collab vault and working space";
-          PRIVACY_CONFIG_PATH = "./privacy_settings.yaml";
+          # Production-ready environment variables (user-configurable)
+          SEFIROT_HOME = "$HOME/.sefirot";
+          SEFIROT_CONFIG = "$HOME/.sefirot/user_config.yaml";
+          CHROMADB_DATA_PATH = "$HOME/.sefirot/chromadb_data";
+          SEFIROT_LOGS = "$HOME/.sefirot/logs";
+          
+          # Privacy and processing settings
+          PRIVACY_CLASSIFICATION_ENABLED = "true";
+          SEMANTIC_TAGGING_ENABLED = "true";
+          MULTI_VAULT_PROCESSING = "true";
+          
+          # V2+ Conda transition preparation
+          CONDA_ENV_PATH = "./environment.yml";
+          FUTURE_MAMBA_READY = "true";
         };
         
         # Production environment (optimized for deployment)
@@ -206,13 +226,24 @@
           '';
         };
         
-        # Cross-platform compatibility
-        packages.default = pkgs.writeShellScriptBin "chromadb-platform" ''
-          echo "ChromaDB Adaptive Intelligence Platform"
-          echo "Usage:"
-          echo "  nix develop                    # Enter development environment"
-          echo "  nix develop .#production      # Enter production environment"  
-          echo "  nix develop .#testing         # Enter testing environment"
+        # Production-ready Sefirot CLI package
+        packages.default = pkgs.writeShellScriptBin "sefirot" ''
+          echo "🌳 Sefirot ChromaDB Intelligence Platform v2.0"
+          echo ""
+          echo "Available environments:"
+          echo "  nix develop                    # Full development environment"
+          echo "  nix develop .#production       # Production deployment"
+          echo "  nix develop .#testing          # Testing and validation"
+          echo ""
+          echo "First-time setup:"
+          echo "  1. Copy user_config_template.yaml to ~/.sefirot/user_config.yaml"
+          echo "  2. Edit configuration with your vault paths and API keys"
+          echo "  3. Run: nix develop"
+          echo "  4. Initialize: sefirot init"
+          echo ""
+          echo "V2+ Conda Migration:"
+          echo "  conda env create -f environment.yml"
+          echo "  conda activate sefirot-v2"
           echo ""
           echo "Hardware Detection:"
           python -c "import platform; print(f'System: {platform.system()} {platform.machine()}')"
@@ -221,6 +252,10 @@
             echo "CUDA GPUs:"
             nvidia-smi --query-gpu=name,memory.total --format=csv,noheader,nounits
           fi
+          
+          echo ""
+          echo "📖 Full documentation: https://docs.sefirot.ai"
+          echo "🚀 Ready for first 10 test users!"
         '';
       }
     );

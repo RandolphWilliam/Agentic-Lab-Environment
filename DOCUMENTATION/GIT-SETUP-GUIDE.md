@@ -1,4 +1,4 @@
-# 📚 Git Setup Guide for First-Time Users
+# Git Setup Guide for First-Time Users
 
 ## Installing Git on macOS
 

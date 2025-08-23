@@ -1,0 +1,232 @@
+# Sefirot ChromaDB Intelligence Platform - User Configuration Template
+# Version: v2.0 Production Ready
+# This file should be copied to ~/.sefirot/user_config.yaml and customized
+
+# Personal Information (Edit these values for your setup)
+user:
+  name: "YOUR_NAME"
+  email: "your.email@domain.com"
+  timezone: "America/New_York"  # Adjust to your timezone
+  
+# Vault Configuration
+vaults:
+  # Primary vault location - adjust path as needed
+  main_vault: "~/Documents/Obsidian/MainVault"
+  
+  # Additional vault locations (optional)
+  # secondary_vault: "~/Documents/Obsidian/SecondaryVault" 
+  # mobile_sync: "~/Documents/MobileSync"
+  # desktop_notes: "~/Desktop/Notes"
+  
+  # Vault-specific settings
+  settings:
+    # Exclude patterns for all vaults
+    exclude_patterns:
+      - ".obsidian"
+      - ".git" 
+      - "node_modules"
+      - "__pycache__"
+      - ".DS_Store"
+      - "chromadb_data"
+      - "logs"
+      
+    # File extensions to process
+    include_extensions:
+      - ".md"
+      - ".txt" 
+      - ".csv"
+      - ".json"
+
+# ChromaDB Configuration
+chromadb:
+  # Storage location for ChromaDB data
+  data_path: "~/.sefirot/chromadb_data"
+  
+  # Collection names (customize as needed)
+  collections:
+    main: "user_main_collection"
+    technical: "user_technical_docs"
+    personal: "user_personal_notes"
+    business: "user_business_docs"
+    
+  # Performance settings
+  batch_size: 100  # Adjust based on your system memory
+  max_memory_gb: 8  # Maximum memory usage
+  
+# Privacy Classification Settings
+privacy:
+  # Enable privacy analysis
+  enabled: true
+  
+  # Custom patterns for your privacy tiers
+  tier3_personal_patterns:
+    - "\\b(your-personal-email@domain\\.com)\\b"
+    - "\\b(your-phone-number)\\b"
+    - "\\b(your-address|your-street)\\b"
+    - "\\b(family-member-names)\\b"
+    
+  tier2_business_patterns:
+    - "\\b(your-company-name)\\b"
+    - "\\b(client-name|customer-name)\\b"
+    - "\\b(confidential-project-name)\\b"
+    - "\\b(business-sensitive-terms)\\b"
+    
+  # Privacy actions
+  actions:
+    tier3_handling: "exclude"  # exclude, anonymize, or include with consent
+    tier2_handling: "abstract"  # abstract, exclude, or include
+    tier1_handling: "include"   # Always safe to include
+
+# Semantic Tagging Configuration
+tagging:
+  # Enable automatic semantic tagging
+  enabled: true
+  
+  # Custom tag hierarchies (expand based on your domains)
+  custom_domains:
+    work:
+      projects: ["project-alpha", "project-beta", "ongoing-research"]
+      skills: ["programming", "writing", "analysis", "design"]
+      tools: ["python", "obsidian", "git", "docker"]
+      
+    personal:
+      interests: ["reading", "technology", "productivity", "learning"]
+      goals: ["skill-development", "health", "relationships", "finance"]
+      
+    research:
+      topics: ["ai", "automation", "knowledge-management", "productivity"]
+      methods: ["experimentation", "analysis", "synthesis", "documentation"]
+
+# AI Integration Settings
+ai_services:
+  # API credentials (keep these secure!)
+  anthropic:
+    api_key: ""  # Add your Anthropic API key
+    model: "claude-3-sonnet-20240229"
+    
+  openai:
+    api_key: ""  # Add your OpenAI API key  
+    model: "gpt-4"
+    
+  # Optional services
+  pinecone:
+    api_key: ""
+    environment: ""
+    
+  # Local embedding model
+  sentence_transformers:
+    model: "all-MiniLM-L6-v2"  # or "all-mpnet-base-v2" for better quality
+    device: "cpu"  # or "cuda" if you have GPU
+
+# Hardware Optimization
+hardware:
+  # System detection (auto-detected, but can override)
+  cpu_cores: "auto"  # or specify number
+  memory_gb: "auto"   # or specify amount
+  gpu_available: "auto"  # or true/false
+  
+  # Performance tuning
+  parallel_processing: true
+  batch_processing: true
+  memory_efficient: true
+  
+  # Mobile/low-power optimizations  
+  mobile_mode: false
+  power_saving: false
+
+# Workflow Settings
+workflows:
+  # Automatic processing intervals
+  auto_sync_minutes: 15  # How often to check for new files
+  full_reindex_hours: 24  # How often to do complete reindexing
+  
+  # Processing priorities
+  process_new_files: true
+  update_changed_files: true
+  cleanup_deleted_files: true
+  
+  # Notification settings
+  notifications:
+    enabled: false  # Set to true to enable notifications
+    success: false
+    errors: true
+    progress: false
+
+# Integration Settings
+integrations:
+  # Obsidian integration
+  obsidian:
+    enabled: true
+    auto_create_backlinks: true
+    update_metadata: true
+    
+  # Git integration (if your vaults are git repositories)
+  git:
+    enabled: false
+    auto_commit: false
+    commit_message_template: "Sefirot auto-update: {timestamp}"
+  
+  # Cloud sync (experimental)
+  cloud_sync:
+    enabled: false
+    provider: ""  # "google_drive", "dropbox", "icloud"
+    sync_path: ""
+
+# Logging and Debugging
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  file: "~/.sefirot/logs/sefirot.log"
+  max_size_mb: 10
+  backup_count: 5
+  
+  # Component-specific logging
+  components:
+    chromadb: "INFO"
+    privacy: "INFO" 
+    tagging: "INFO"
+    processing: "INFO"
+
+# Advanced Settings
+advanced:
+  # Experimental features
+  experimental_features: false
+  
+  # Performance monitoring
+  performance_monitoring: false
+  
+  # Debug mode
+  debug_mode: false
+  
+  # Custom plugin directory
+  plugin_directory: "~/.sefirot/plugins"
+  
+  # Backup settings
+  backup:
+    enabled: true
+    frequency: "weekly"
+    retention_weeks: 4
+    location: "~/.sefirot/backups"
+
+# Template Information
+template_info:
+  version: "2.0.0"
+  created: "2025-08-23"
+  description: "Production-ready Sefirot user configuration template"
+  documentation: "https://github.com/sefirot-ai/sefirot-platform"
+  
+# Instructions for first-time users
+setup_instructions: |
+  1. Copy this file to ~/.sefirot/user_config.yaml
+  2. Edit the 'user' section with your information
+  3. Update 'vaults' paths to point to your Obsidian vaults
+  4. Add your API keys in the 'ai_services' section
+  5. Customize privacy patterns for your specific content
+  6. Run 'sefirot init' to initialize your configuration
+  7. Run 'sefirot sync' to start indexing your content
+  
+# Support and Community
+support:
+  documentation: "docs.sefirot.ai"
+  community: "discord.gg/sefirot"
+  issues: "github.com/sefirot-ai/sefirot-platform/issues"
+  email: "support@sefirot.ai"

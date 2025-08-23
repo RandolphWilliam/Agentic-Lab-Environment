@@ -1,4 +1,4 @@
-# 🤖 LLM Context Guide for Sefirot Intelligence Platform
+# LLM Context Guide for Sefirot Intelligence Platform
 
 ## Overview for AI Assistants
 

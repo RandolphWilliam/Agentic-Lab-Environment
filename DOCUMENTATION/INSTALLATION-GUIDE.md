@@ -1,4 +1,4 @@
-# 📋 Sefirot Installation Guide
+# Sefirot Installation Guide
 
 ## Installation Methods
 
@@ -53,11 +53,11 @@ For advanced users or automated deployment:
 
 ```bash
 # Run steps sequentially
-./SEQUENCED-INSTALLATION/step_01_environment_setup.sh
-./SEQUENCED-INSTALLATION/step_02_python_environment.sh
-./SEQUENCED-INSTALLATION/step_03_chromadb_platform.sh
-./SEQUENCED-INSTALLATION/step_04_obsidian_integration.sh
-./SEQUENCED-INSTALLATION/step_05_final_configuration.sh
+./INSTALLATION/step_01_environment_setup.sh
+./INSTALLATION/step_02_python_environment.sh
+./INSTALLATION/step_03_chromadb_platform.sh
+./INSTALLATION/step_04_obsidian_integration.sh
+./INSTALLATION/step_05_final_configuration.sh
 ```
 
 ## System Requirements

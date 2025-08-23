@@ -1,4 +1,4 @@
-# 🚀 Electron as Primary GUI Framework for Sefirot
+# Electron as Primary GUI Framework for Sefirot
 
 ## Executive Decision: Electron-First Implementation
 

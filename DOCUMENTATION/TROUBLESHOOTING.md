@@ -1,8 +1,8 @@
-# 🛠️ Sefirot Troubleshooting Guide
+# Sefirot Troubleshooting Guide
 
 ## Installation Issues
 
-### **Electron Installer Won't Start**
+### Electron Installer Won't Start
 
 **Symptoms**: `npm start` fails or shows errors
 **Solutions**:
@@ -19,19 +19,19 @@ node --version
 brew install node@18
 ```
 
-### **Permission Denied Errors**
+### Permission Denied Errors
 
 **Symptoms**: Installation scripts fail with permission errors
 **Solutions**:
 ```bash
 # Make scripts executable
-chmod +x ./SEQUENCED-INSTALLATION/*.sh
+chmod +x ./INSTALLATION/*.sh
 
 # Run with proper permissions
-sudo ./SEQUENCED-INSTALLATION/step_01_environment_setup.sh
+sudo ./INSTALLATION/step_01_environment_setup.sh
 ```
 
-### **Homebrew Installation Fails**
+### Homebrew Installation Fails
 
 **Symptoms**: Step 1 fails to install Homebrew
 **Solutions**:
@@ -50,7 +50,7 @@ source ~/.zshrc
 
 ## Python Environment Issues
 
-### **Conda Command Not Found**
+### Conda Command Not Found
 
 **Symptoms**: `conda: command not found`
 **Solutions**:
@@ -64,7 +64,7 @@ echo 'export PATH="/opt/homebrew/anaconda3/bin:$PATH"' >> ~/.zshrc
 source ~/.zshrc
 ```
 
-### **Package Installation Fails**
+### Package Installation Fails
 
 **Symptoms**: ChromaDB or AI packages fail to install
 **Solutions**:
@@ -81,7 +81,7 @@ conda install -c conda-forge chromadb
 pip install transformers sentence-transformers
 ```
 
-### **Apple Silicon Compatibility**
+### Apple Silicon Compatibility
 
 **Symptoms**: Packages fail on M1/M2/M3 Macs
 **Solutions**:
@@ -95,7 +95,7 @@ arch -arm64 brew install python@3.11
 
 ## API and Credential Issues
 
-### **API Keys Not Working**
+### API Keys Not Working
 
 **Symptoms**: Authentication errors or quota exceeded
 **Solutions**:
@@ -112,7 +112,7 @@ arch -arm64 brew install python@3.11
 
 3. **Recreate Keys**: Generate new keys from provider dashboards
 
-### **Keychain Access Denied**
+### Keychain Access Denied
 
 **Symptoms**: macOS keychain permission errors
 **Solutions**:
@@ -126,7 +126,7 @@ security delete-generic-password -s "sefirot-api-keys" ~/Library/Keychains/login
 
 ## ChromaDB Issues
 
-### **Database Initialization Fails**
+### Database Initialization Fails
 
 **Symptoms**: ChromaDB cannot create database files
 **Solutions**:
@@ -139,7 +139,7 @@ rm -rf ~/SefirotVault/.chromadb
 sefirot init --force
 ```
 
-### **Memory Issues with Large Documents**
+### Memory Issues with Large Documents
 
 **Symptoms**: Out of memory errors during processing
 **Solutions**:
@@ -153,7 +153,7 @@ sefirot sync --batch-size 50
 
 ## Obsidian Integration Issues
 
-### **Obsidian Not Installing via Homebrew**
+### Obsidian Not Installing via Homebrew
 
 **Symptoms**: Obsidian cask installation fails
 **Solutions**:
@@ -164,7 +164,7 @@ brew install --cask obsidian
 # Or download from obsidian.md and install manually
 ```
 
-### **Plugin Installation Fails**
+### Plugin Installation Fails
 
 **Symptoms**: Community plugins not installing
 **Solutions**:
@@ -177,7 +177,7 @@ brew install --cask obsidian
    - Turn off Safe Mode
    - Browse and install plugins
 
-### **Vault Not Recognized**
+### Vault Not Recognized
 
 **Symptoms**: Obsidian doesn't recognize SefirotVault
 **Solutions**:
@@ -192,7 +192,7 @@ echo '{"isNewVault": false}' > ~/SefirotVault/.obsidian/app.json
 
 ## Performance Issues
 
-### **Slow Processing**
+### Slow Processing
 
 **Symptoms**: Document processing takes very long
 **Solutions**:
@@ -207,7 +207,7 @@ sefirot config set batch_size 32
 sefirot config set embedding_model "sentence-transformers/all-MiniLM-L6-v2"
 ```
 
-### **High CPU Usage**
+### High CPU Usage
 
 **Symptoms**: System becomes unresponsive during processing
 **Solutions**:
@@ -221,7 +221,7 @@ nice -n 10 sefirot sync
 
 ## Network and Connectivity
 
-### **API Timeouts**
+### API Timeouts
 
 **Symptoms**: Network requests timing out
 **Solutions**:
@@ -233,7 +233,7 @@ sefirot config set api_timeout 120
 networksetup -setdnsservers Wi-Fi 8.8.8.8 8.8.4.4
 ```
 
-### **Firewall Issues**
+### Firewall Issues
 
 **Symptoms**: API calls blocked by corporate firewall
 **Solutions**:
@@ -250,7 +250,7 @@ networksetup -setdnsservers Wi-Fi 8.8.8.8 8.8.4.4
 
 ## Diagnostic Commands
 
-### **System Status**
+### System Status
 ```bash
 # Complete system check
 sefirot doctor
@@ -262,7 +262,7 @@ sefirot test-chromadb
 sefirot test-obsidian
 ```
 
-### **Log Analysis**
+### Log Analysis
 ```bash
 # View recent logs
 sefirot logs --tail 50
@@ -276,7 +276,7 @@ sefirot export-diagnostics ~/sefirot-diagnostics.zip
 
 ## Getting Help
 
-### **Built-in Help**
+### Built-in Help
 ```bash
 # General help
 sefirot help
@@ -287,12 +287,53 @@ sefirot help config
 sefirot help test
 ```
 
-### **Community Support**
+### Community Support
 - **Documentation**: Check INSTALLATION-GUIDE.md
 - **Issues**: Common problems in this troubleshooting guide
 - **Email Support**: hello@sefirot.dev
 
-### **Advanced Diagnostics**
+#### macOS Version Compatibility
+
+**Symptoms**: Installation fails on older macOS versions
+**Solutions**:
+```bash
+# Check macOS version
+sw_vers
+
+# macOS 12.0+ required - upgrade if needed
+# softwareupdate -l
+# softwareupdate -i -a
+```
+
+### Xcode Command Line Tools Issues
+
+**Symptoms**: Compilation errors during package installation
+**Solutions**:
+```bash
+# Install/update Xcode Command Line Tools
+xcode-select --install
+
+# Reset tools if corrupted
+sudo xcode-select --reset
+sudo xcode-select --install
+```
+
+### Security and Privacy Settings
+
+**Symptoms**: Installation blocked by macOS security settings
+**Solutions**:
+1. **Allow apps from App Store and identified developers**:
+   - System Preferences → Security & Privacy → General
+   - Allow apps downloaded from: "App Store and identified developers"
+
+2. **Terminal Full Disk Access** (for keychain operations):
+   - System Preferences → Security & Privacy → Privacy
+   - Full Disk Access → Add Terminal
+
+3. **Developer Tools Access**:
+   - Allow Terminal to access Downloads, Documents folders
+
+## Advanced Diagnostics
 
 If issues persist, collect this information before contacting support:
 
@@ -307,13 +348,13 @@ pip list
 brew list
 
 # Sefirot configuration
-sefirot config show --all
-sefirot status --verbose
+python CORE-PLATFORM/chromadb_intelligence_engine.py health
+ls -la ~/.sefirot/
 ```
 
 ## Recovery Procedures
 
-### **Complete Reinstall**
+### Complete Reinstall
 ```bash
 # Remove everything
 ./UNINSTALL/sefirot_uninstall.sh
@@ -323,7 +364,7 @@ cd SEFIROT-COMPLETE-INSTALLER
 npm start
 ```
 
-### **Backup and Restore**
+### Backup and Restore
 ```bash
 # Backup current configuration
 sefirot backup ~/sefirot-backup-$(date +%Y%m%d).tar.gz

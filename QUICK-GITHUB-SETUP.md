@@ -1,4 +1,4 @@
-# 🚀 Quick GitHub Publication Commands
+# Quick GitHub Publication Commands
 
 For immediate GitHub publication of Agentic Lab Environment.
 

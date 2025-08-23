@@ -2,7 +2,7 @@
 
 This directory contains complete GUI integration components for the Sefirot ChromaDB Intelligence Platform installation process.
 
-## 🎯 **Primary GUI Framework: Electron**
+## Primary GUI Framework: Electron
 
 **The Sefirot platform is specifically designed for Electron-based GUI implementation.** While the API supports multiple frameworks, Electron is the recommended and primary target for the following reasons:
 
@@ -87,7 +87,7 @@ def update_status_display(status, data):
 
 ## Framework-Specific Examples
 
-### 🚀 **Electron GUI (Primary Implementation)**
+### Electron GUI (Primary Implementation)
 
 **This is the recommended implementation approach for Sefirot:**
 
